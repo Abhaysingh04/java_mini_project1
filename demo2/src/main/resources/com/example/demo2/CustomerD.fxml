@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="458.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.CusttableController">
+   <children>
+      <SplitPane dividerPositions="0.3574408901251738" prefHeight="458.0" prefWidth="666.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox layoutX="14.0" layoutY="14.0" prefHeight="435.0" prefWidth="221.0" stylesheets="@style1.css">
+                     <children>
+                        <HBox prefHeight="53.0" prefWidth="194.0">
+                           <children>
+                              <VBox prefHeight="43.0" prefWidth="203.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="194.0" text="Customer ID :">
+                                       <font>
+                                          <Font name="Arial Black" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="9.0" prefWidth="194.0" />
+                                    <TextField fx:id="Cust_id" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="18.0" prefWidth="194.0" />
+                        <HBox layoutX="10.0" layoutY="31.0" prefHeight="53.0" prefWidth="194.0">
+                           <children>
+                              <VBox prefHeight="43.0" prefWidth="203.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="194.0" text="Customer Name :">
+                                       <font>
+                                          <Font name="Arial Black" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="Cust_name1" />
+                                    <HBox prefHeight="9.0" prefWidth="194.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="84.0" prefHeight="18.0" prefWidth="194.0" />
+                        <HBox layoutX="10.0" layoutY="102.0" prefHeight="53.0" prefWidth="194.0">
+                           <children>
+                              <VBox prefHeight="43.0" prefWidth="203.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="194.0" text="Contact Number :">
+                                       <font>
+                                          <Font name="Arial Black" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="9.0" prefWidth="194.0" />
+                                    <TextField fx:id="Cust_Contact" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="155.0" prefHeight="18.0" prefWidth="194.0" />
+                        <HBox layoutX="10.0" layoutY="173.0" prefHeight="53.0" prefWidth="194.0">
+                           <children>
+                              <VBox prefHeight="43.0" prefWidth="203.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="194.0" text="Email :">
+                                       <font>
+                                          <Font name="Arial Black" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="9.0" prefWidth="194.0" />
+                                    <TextField fx:id="Cust_email2" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="205.0" prefHeight="18.0" prefWidth="194.0" />
+                        <HBox layoutX="10.0" layoutY="223.0" prefHeight="53.0" prefWidth="194.0">
+                           <children>
+                              <VBox prefHeight="43.0" prefWidth="203.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="194.0" text="Aadhar No :">
+                                       <font>
+                                          <Font name="Arial Black" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="Cust_aadhar" />
+                                    <HBox prefHeight="9.0" prefWidth="194.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="47.0" prefWidth="221.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#onbackbuttonclick" prefHeight="26.0" prefWidth="86.0" styleClass="container" stylesheets="@style1.css" text="Back">
+                                 <font>
+                                    <Font name="Arial Black" size="13.0" />
+                                 </font>
+                              </Button>
+                              <VBox prefHeight="88.0" prefWidth="13.0" />
+                              <Button mnemonicParsing="false" onAction="#Onaddbuttonclick" prefHeight="27.0" prefWidth="83.0" styleClass="container" stylesheets="@style1.css" text="Add">
+                                 <font>
+                                    <Font name="Arial Black" size="13.0" />
+                                 </font>
+                              </Button>
+                              <VBox prefHeight="88.0" prefWidth="15.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="221.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" styleClass="container" stylesheets="@style1.css" text="Delete">
+                                 <font>
+                                    <Font name="Arial Black" size="13.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="456.0" prefWidth="474.0">
+               <children>
+                  <TableView fx:id="Cust_TAB" layoutY="51.0" prefHeight="397.0" prefWidth="473.0" styleClass="gradient-background1" stylesheets="@style1.css">
+                    <columns>
+                      <TableColumn fx:id="Cust_custId" prefWidth="76.0" text="Customer ID" />
+                        <TableColumn fx:id="Cust_name" prefWidth="123.0" text="Customer Name" />
+                        <TableColumn fx:id="Cust_Cont" prefWidth="78.0" text="Contact" />
+                        <TableColumn fx:id="Cust_email" prefWidth="78.0" text="Email" />
+                        <TableColumn fx:id="Cust_Adhar" prefWidth="75.0" text="Aadhar No." />
+                    </columns>
+                  </TableView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="8.0" prefHeight="34.0" prefWidth="387.0" styleClass="container" stylesheets="@style1.css" text="Customer Details">
+                     <font>
+                        <Font name="Arial Black" size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
