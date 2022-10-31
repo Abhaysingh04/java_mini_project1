@@ -21,23 +21,42 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class returnController{
-    @FXML
-    private TableView<returnmodel> Rent_tab;
+public class returnTableController implements Initializable {
+
 
     @FXML
-    private TableColumn<returnmodel, Integer> CustomerId;
-    @FXML
-    private TableColumn<returnmodel, Integer> RegistrationId;
-    @FXML
-    private TableColumn<returnmodel, Integer> No_of_Days;
-    @FXML
-    private TableColumn<returnmodel, Integer> T_amount;
+    private TableView<returnTableController> Rent_tab;
 
     @FXML
-    private TableColumn<returnmodel, String> Rent_DOP;
+    private TableColumn<returnTableController, Integer> CustomerId;
+    @FXML
+    private TableColumn<returnTableController, Integer> Rent_Regid;
+    @FXML
+    private TableColumn<returnTableController, Integer> Rent_Days;
+    @FXML
+    private TableColumn<returnTableController, Integer> Rent_rent;
 
-    ObservableList<returnmodel> listM;
+    @FXML
+    private TableColumn<returnTableController, String> Rent_DOP;
+
+
+
+    ObservableList<Rentalinfomodel> listM;
+
+    public void initialize(URL url, ResourceBundle rb) {
+
+        Rent_Regid.setCellValueFactory(new PropertyValueFactory<>("REGISTRATION_ID"));
+        Rent_Custid.setCellValueFactory(new PropertyValueFactory<>("CUSTOMER_ID"));
+        Rent_DOP.setCellValueFactory(new PropertyValueFactory<>("DATE"));
+        Rent_Days.setCellValueFactory(new PropertyValueFactory<>("NO_OF_DAYS"));
+        Rent_rent.setCellValueFactory(new PropertyValueFactory<>("TOTAL_RENT"));
+        // DatabaseConnection connectNow = new DatabaseConnection();
+        //Connection connectDB = connectNow.connectDb();
+
+        listM = DatabaseConnection.getData2();
+        Rent_tab.setItems(listM);
+
+    }
     @FXML
     private TextField Return_regid;
     @FXML
@@ -50,19 +69,16 @@ public class returnController{
     private TextField Return_fine;
     @FXML
     private TextField Return_Tamount;
-
-    public void onbackbuttonclick(ActionEvent e) throws IOException {
+    public void onbackbuttonclick(ActionEvent e) throws  IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("main.fxml"));
-        ((Node) (e.getSource())).getScene().getWindow().hide();
+        ((Node)(e.getSource())).getScene().getWindow().hide();
         Parent root1 = fxmlLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root1));
         stage.show();
     }
 
-
-
-    public void Onreturnbuttonclick(ActionEvent e) throws IOException{
+    public void Onsubmitbuttonclick(ActionEvent e) throws IOException {
         try {
 //            Connection connect = DatabaseConnection.connectDb();
             //Creating Connection Object
@@ -74,18 +90,17 @@ public class returnController{
             //Preapared Statement
 //            PreparedStatement Pstatement = connect.prepareStatement(Sql);
             //Specifying the values of it's parameter
-            PreparedStatement Pstatement = connectdb.prepareStatement("INSERT INTO return (REGISTRATION_NO, CUSTOMER_ID, NO_DAYS, RENT, FINE, TOTAL_AMOUNT) VALUES(?,?,?,?,?,?)");
-            Pstatement.setString(1, Return_regid.getText());
-            Pstatement.setString(2, Return_custid.getText());
-            Pstatement.setString(3, Return_days.getText());
-            Pstatement.setString(4, Return_rent.getText());
-            Pstatement.setString(5, Return_fine.getText());
-            Pstatement.setString(6, Return_Tamount.getText());
+            PreparedStatement Pstatement = connectdb.prepareStatement("INSERT INTO rental (REGISTRATION_ID, CUSTOMER_ID, DATE, NO_OF_DAYS, TOTAL_RENT) VALUES(?,?,?,?,?)");
+            Pstatement.setString(1, tx_regId.getText());
+            Pstatement.setString(2, tx_custid.getText());
+            Pstatement.setString(3, tx_date.getText());
+            Pstatement.setString(4, tx_days.getText());
+            Pstatement.setString(5, tx_amount.getText());
             Pstatement.executeUpdate();
 
             // After creating Account Login Page Will Appear
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loginpage.fxml"));
-            ((Node) (e.getSource())).getScene().getWindow().hide();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Rent.fxml"));
+            ((Node)(e.getSource())).getScene().getWindow().hide();
             Parent root1 = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
@@ -100,19 +115,3 @@ public class returnController{
         }
     }
 }
-   /*
-    public void initialize(URL url, ResourceBundle rb) {
-        DatabaseConnection connectnow = new DatabaseConnection();
-        Connection connectdb = connectnow.connectDb();
-
-        PreparedStatement Pstatement = connectdb.prepareStatement("INSERT INTO return_car (REGISTRATION_NO, CUSTOMER_ID, NO_DAYS, RENT, FINE, TOTAL_AMOUNT) VALUES(?,?,?,?,?,?)");
-        Pstatement.setString(1, Return_regid.getText());
-        Pstatement.setString(2, Return_custid.getText());
-        Pstatement.setString(3, Return_days.getText());
-        Pstatement.setString(4, Return_rent.getText());
-        Pstatement.setString(5, Return_fine.getText());
-        Pstatement.setString(6, Return_Tamount.getText());
-        Pstatement.executeUpdate();
-    }
-    }
-*/

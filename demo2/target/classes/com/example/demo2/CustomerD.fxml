@@ -106,7 +106,7 @@
                                  </font>
                               </Button>
                               <VBox prefHeight="88.0" prefWidth="13.0" />
-                              <Button mnemonicParsing="false" onAction="#Onaddbuttonclick" prefHeight="27.0" prefWidth="83.0" styleClass="container" stylesheets="@style1.css" text="Add">
+                              <Button mnemonicParsing="false" onAction="#Onsubmitbuttonclick" prefHeight="27.0" prefWidth="83.0" styleClass="container" stylesheets="@style1.css" text="Add">
                                  <font>
                                     <Font name="Arial Black" size="13.0" />
                                  </font>

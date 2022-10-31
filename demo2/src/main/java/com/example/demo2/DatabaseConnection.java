@@ -67,6 +67,7 @@ public class DatabaseConnection {
         return list;
     }
 
+
     // For Rental Page
     public static ObservableList<Rentalinfomodel> getData2() {
         ObservableList<Rentalinfomodel> list = FXCollections.observableArrayList();
@@ -86,22 +87,20 @@ public class DatabaseConnection {
 
         return list;
     }
-    public static ObservableList<returnmodel> getData3() {
+    public static ObservableList<returnmodel> getData3(){
         ObservableList<returnmodel> list = FXCollections.observableArrayList();
         try {
             DatabaseConnection connectNow = new DatabaseConnection();
             Connection connectDB = connectNow.connectDb();
             Statement statement = connectDB.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM java_mini.return;");
+            ResultSet rs = statement.executeQuery("select * from return");
             while (rs.next()) {
                 // number of parameter depends upon columns in table view
-                list.add(new returnmodel(rs.getInt("CUSTOMER_ID"), rs.getInt("NO_DAYS"), rs.getInt("TOTAL_AMOUNT"),rs.getInt("REGISTRATION_NO"),rs.getString("DOP")));
+                list.add(new returnmodel(rs.getInt("REGISTRATION_NO"),rs.getInt("CUSTOMER_ID"),rs.getInt("Total_Amount"),rs.getInt("NO_DAYS"), rs.getString("DOP")));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
         return list;
     }
 }

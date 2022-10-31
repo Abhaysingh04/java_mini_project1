@@ -26,7 +26,7 @@ public class CusttableController implements Initializable {
 
 
     @FXML
-    private TableView<returnmodel> Cust_TAB;
+    private TableView<CustomerRegistrationinfomodel> Cust_TAB;
 
     @FXML
     private TableColumn<CustomerRegistrationinfomodel, String> Cust_name;
@@ -42,7 +42,7 @@ public class CusttableController implements Initializable {
 
 
 
-    ObservableList<returnmodel> listM;
+    ObservableList<CustomerRegistrationinfomodel> listM;
 
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -54,7 +54,7 @@ public class CusttableController implements Initializable {
         // DatabaseConnection connectNow = new DatabaseConnection();
         //Connection connectDB = connectNow.connectDb();
 
-        listM = DatabaseConnection.getData3();
+        listM = DatabaseConnection.getData1();
         Cust_TAB.setItems(listM);
 
     }
@@ -76,41 +76,42 @@ public class CusttableController implements Initializable {
         stage.setScene(new Scene(root1));
         stage.show();
     }
-    public void Onaddbuttonclick(ActionEvent e) throws IOException, SQLException {
-        try {
+
+public void Onsubmitbuttonclick(ActionEvent e) throws IOException {
+    try {
 //            Connection connect = DatabaseConnection.connectDb();
-            //Creating Connection Object
-            DatabaseConnection connectnow = new DatabaseConnection();
-            Connection connectdb = connectnow.connectDb();
+        //Creating Connection Object
+        DatabaseConnection connectnow = new DatabaseConnection();
+        Connection connectdb = connectnow.connectDb();
 
 //            String Sql = "INSERT INTO signup (name,mobno,email,username,password) VALUES(?,?,?,?,?)";
 
-            //Preapared Statement
+        //Preapared Statement
 //            PreparedStatement Pstatement = connect.prepareStatement(Sql);
-            //Specifying the values of it's parameter
-            PreparedStatement Pstatement = connectdb.prepareStatement("INSERT INTO customer (CUSTOMER_ID, CUSTOMER_NAME, CUSTOMER_Email, CUSTOMER_Ph_NO, CUSTOMER_ID_PROOF) VALUES(?,?,?,?,?)");
-            Pstatement.setString(1, Cust_id.getText());
-            Pstatement.setString(2, Cust_name1.getText());
-            Pstatement.setString(3, Cust_email2.getText());
-            Pstatement.setString(4, Cust_Contact.getText());
-            Pstatement.setString(5, Cust_aadhar.getText());
-            Pstatement.executeUpdate();
+        //Specifying the values of it's parameter
+        PreparedStatement Pstatement = connectdb.prepareStatement("INSERT INTO customer (CUSTOMER_ID, CUSTOMER_NAME, CUSTOMER_Email, CUSTOMER_Ph_NO, CUSTOMER_ID_PROOF) VALUES(?,?,?,?,?)");
+        Pstatement.setString(1, Cust_id.getText());
+        Pstatement.setString(2, Cust_name1.getText());
+        Pstatement.setString(3, Cust_email2.getText());
+        Pstatement.setString(4, Cust_Contact.getText());
+        Pstatement.setString(5, Cust_aadhar.getText());
+        Pstatement.executeUpdate();
 
-            // After creating Account Login Page Will Appear
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CustomerD.fxml"));
-            ((Node) (e.getSource())).getScene().getWindow().hide();
-            Parent root1 = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root1));
-            stage.show();
+        // After creating Account Login Page Will Appear
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CustomerD.fxml"));
+        ((Node)(e.getSource())).getScene().getWindow().hide();
+        Parent root1 = fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root1));
+        stage.show();
 //        Parent root = FXMLLoader.load((getClass().getResource("loginpage.fxml")));
 //        Stage stage = new Stage();
 //        Scene scene = new Scene(root);
 //        stage.setScene(scene);
 //        stage.show();
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
-        }
+    } catch (SQLException ex) {
+        throw new RuntimeException(ex);
     }
+}
 
 }

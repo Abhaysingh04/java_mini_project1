@@ -75,7 +75,8 @@ public class RentalTableController implements Initializable {
         stage.setScene(new Scene(root1));
         stage.show();
     }
-    public void Onaddbuttonclick(ActionEvent e) throws IOException, SQLException {
+
+    public void Onsubmitbuttonclick(ActionEvent e) throws IOException {
         try {
 //            Connection connect = DatabaseConnection.connectDb();
             //Creating Connection Object
@@ -96,7 +97,7 @@ public class RentalTableController implements Initializable {
             Pstatement.executeUpdate();
 
             // After creating Account Login Page Will Appear
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loginpage.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Rent.fxml"));
             ((Node)(e.getSource())).getScene().getWindow().hide();
             Parent root1 = fxmlLoader.load();
             Stage stage = new Stage();

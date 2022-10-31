@@ -16,8 +16,8 @@ public class CustomerRegistrationinfomodel {
             this.CUSTOMER_ID= Cust_custId;
             this.CUSTOMER_NAME= Cust_name;
             this.CUSTOMER_Email=Cust_email;
-            this.CUSTOMER_Ph_NO= (Cust_Cont);
-            this.CUSTOMER_ID_PROOF= (Cust_Adhar);
+            this.CUSTOMER_Ph_NO= Cust_Cont;
+            this.CUSTOMER_ID_PROOF= Cust_Adhar;
 
         }
 
@@ -35,11 +35,13 @@ public class CustomerRegistrationinfomodel {
 
 
         public Integer getCUSTOMER_Ph_NO() {
+
             return CUSTOMER_Ph_NO;
         }
 
         public String getCUSTOMER_ID_PROOF() {
-            return CUSTOMER_ID_PROOF;}
+            return CUSTOMER_ID_PROOF;
+        }
 
 
 

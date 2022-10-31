@@ -1,6 +1,6 @@
 package com.example.demo2;
 
-public class Rentalinfomodel {
+public class Rentalinfomodel{
 
     Integer REGISTRATION_ID;
     Integer CUSTOMER_ID;
@@ -44,21 +44,20 @@ public class Rentalinfomodel {
 
 
 
-    public void setREGISTRATION_ID(Integer CUSTOMER_ID) {
+    public void setREGISTRATION_ID(Integer REGISTRATION_ID) {
         REGISTRATION_ID = REGISTRATION_ID;
     }
 
-    public void setCUSTOMER_ID(String MODEL_NAME) {
+    public void setCUSTOMER_ID(Integer CUSTOMER_ID) {
         CUSTOMER_ID = CUSTOMER_ID;
     }
-    public void getNO_OF_DAYS(String MODEL_NAME) {
+    public void getNO_OF_DAYS(Integer NO_OF_DAYS) {
         NO_OF_DAYS = NO_OF_DAYS;
     }
 
 
-    public void getTOTAL_RENT(String DATE ) {
-        TOTAL_RENT = TOTAL_RENT; }
-    public void setTOTAL_RENT(String RENT_PER_DAY) {TOTAL_RENT = TOTAL_RENT;}
+
+    public void setTOTAL_RENT(Integer TOTAL_RENT) {TOTAL_RENT = TOTAL_RENT;}
 
 
     public void getDATE(String DATE) {

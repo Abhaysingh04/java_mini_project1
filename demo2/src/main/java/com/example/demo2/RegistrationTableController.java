@@ -70,6 +70,7 @@ public class RegistrationTableController implements Initializable {
         private TextField tf_colour;
         @FXML
         private TextField tf_rent;
+
         public void onbackbuttonclick(ActionEvent e) throws IOException {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("main.fxml"));
             ((Node)(e.getSource())).getScene().getWindow().hide();
@@ -79,7 +80,7 @@ public class RegistrationTableController implements Initializable {
             stage.show();
         }
 
-        public void Onsubmitbuttonclick(ActionEvent e) throws IOException, SQLException {
+        public void Onsubmitbuttonclick(ActionEvent e) throws IOException {
             try {
 //            Connection connect = DatabaseConnection.connectDb();
                 //Creating Connection Object
